@@ -1,13 +1,20 @@
 package org.fokkittah.coffeeassistant;
 
+import org.fokkittah.coffeeassistant.panelsGUI.MainGui;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
-public class CoffeeAssistantApplication {
+import javax.swing.*;
 
-	public static void main(String[] args) {
-		SpringApplication.run(CoffeeAssistantApplication.class, args);
-	}
+@SpringBootApplication
+public class CoffeeAssistantApplication extends JFrame {
+
+    public static void main(String[] args) {
+        SpringApplication.run(CoffeeAssistantApplication.class, args);
+
+        MainGui mainGui = new MainGui();
+        mainGui.createAndShowGUI();
+
+    }
 
 }
