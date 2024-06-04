@@ -1,0 +1,44 @@
+<recipes>
+    <recipe>
+        <name>Test A</name>
+        <description>Description</description>
+        <coffee>Ethiopia</coffee>
+        <brewer>Switch V60</brewer>
+        <grind>Medium-Fine</grind>
+        <totalWater>300</totalWater>
+        <totalTime>PT3M30S</totalTime>
+        <steps>
+            <step>
+                <duration>PT30S</duration>
+                <water>60</water>
+                <stepInfo>Bloom</stepInfo>
+            </step>
+            <step>
+                <duration>PT3M</duration>
+                <water>240</water>
+                <stepInfo>Brew on closed valve</stepInfo>
+            </step>
+        </steps>
+    </recipe>
+    <recipe>
+        <name>Test B</name>
+        <description>Description</description>
+        <coffee>Ethiopia</coffee>
+        <brewer>Switch V60</brewer>
+        <grind>Medium-Fine</grind>
+        <totalWater>300</totalWater>
+        <totalTime>PT3M30S</totalTime>
+        <steps>
+            <step>
+                <duration>PT30S</duration>
+                <water>60</water>
+                <stepInfo>Bloom</stepInfo>
+            </step>
+            <step>
+                <duration>PT3M</duration>
+                <water>240</water>
+                <stepInfo>Brew on closed valve</stepInfo>
+            </step>
+        </steps>
+    </recipe>
+</recipes>

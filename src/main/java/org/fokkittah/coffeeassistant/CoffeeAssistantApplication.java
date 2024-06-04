@@ -1,8 +1,8 @@
 package org.fokkittah.coffeeassistant;
 
-import org.fokkittah.coffeeassistant.panelsGUI.MainGui;
-import org.springframework.boot.SpringApplication;
+import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import javax.swing.*;
 
@@ -10,10 +10,12 @@ import javax.swing.*;
 public class CoffeeAssistantApplication extends JFrame {
 
     public static void main(String[] args) {
-        SpringApplication.run(CoffeeAssistantApplication.class, args);
+        var ctx = new SpringApplicationBuilder(CoffeeAssistantApplication.class).headless(false).run(args);
+        ctx.getBean(CardLayoutManager.class);
 
-        MainGui mainGui = new MainGui();
-        mainGui.createAndShowGUI();
+//        MainGui mainGui = new MainGui();
+//        WelcomeScreenGui welcomeScreenGui = new WelcomeScreenGui();
+//        mainGui.createAndShowGUI();
 
     }
 
