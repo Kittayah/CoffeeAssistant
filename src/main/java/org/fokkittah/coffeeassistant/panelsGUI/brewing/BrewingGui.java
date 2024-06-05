@@ -19,8 +19,29 @@ public class BrewingGui {
     private JButton startButton;
     private JButton goBackButton;
 
+    private JPanel recipeInfoPanel;
+    private JPanel progressInfoPanel;
+    private JLabel elapsedTimeLabel;
+    private JLabel remainingTimeLabel;
+    private JLabel elapsedLabel;
+    private JLabel remainingLabel;
+    private JPanel brewingInfoPanel;
+    private JList incomingStepsList;
+    private JLabel currentStepLabel;
+    private JLabel currentStepDescriptionLabel;
+    private JLabel incomingStepsLabel;
+    private JLabel recipeInfoLabel;
+
     // progress bar
     private JProgressBar brewingProgressBar;
+    private JLabel coffeeAmountLabel;
+    private JLabel coffeeAmountValueLabel;
+    private JLabel waterAmountLabel;
+    private JLabel waterAmountValueLabel;
+    private JLabel grinderSettingLabel;
+    private JLabel grinderSettingValueLabel;
+    private JLabel totalTimeLabel;
+    private JLabel totalTimeValueLabel;
     private Timer timer;
     public static final int PROGRESS_BAR_MAX_VALUE = 100000;
     public static final int PROGRESS_BAR_REFRESH_DELAY = 10;

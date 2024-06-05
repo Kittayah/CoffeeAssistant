@@ -2,7 +2,8 @@
     <grinders>
         <grinder>
             <name>Timemore C3</name>
-            <description>Some desc</description>
+            <description>The Timemore C3 grinder is a compact and portable manual coffee grinder designed for coffee enthusiasts. It features high-quality stainless steel conical burrs for precise and consistent grinding, which enhances the flavor extraction of coffee beans. The grinder has an adjustable grind size setting, allowing users to customize the coarseness for different brewing methods such as espresso, pour-over, and French press. Its ergonomic design, durable aluminum alloy body, and easy-to-use crank handle make it a reliable and efficient tool for both home and travel use. The Timemore C3 is known for its affordability and performance, making it a popular choice among coffee lovers.
+            </description>
             <grindSettings>
                 <setting>
                     <brewingMethod>Aeropress</brewingMethod>
@@ -25,6 +26,9 @@
                     <max>15</max>
                 </setting>
             </grindSettings>
+        </grinder>
+        <grinder>
+            <name>Commandante C40</name>
         </grinder>
     </grinders>
     <recipes>

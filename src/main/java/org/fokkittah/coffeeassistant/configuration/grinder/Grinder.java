@@ -1,8 +1,13 @@
 package org.fokkittah.coffeeassistant.configuration.grinder;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Grinder {
+
+    public static final int DEFAULT_MIN_GRIND = 1;
+    public static final int DEFAULT_MAX_GRIND = 30;
+
     String name;
     String description;
     List<GrindSettings> grindSettings;
@@ -32,6 +37,11 @@ public class Grinder {
 
     public void setGrindSettings(List<GrindSettings> grindSettings) {
         this.grindSettings = grindSettings;
+    }
+
+    public GrindSettings getGrindSettingsByBrewer(String brewerName){
+        Optional<GrindSettings> settings = this.grindSettings.stream().filter(gr -> gr.brewingMethod.equalsIgnoreCase(brewerName)).findFirst();
+        return settings.orElseGet(() -> new GrindSettings(brewerName, DEFAULT_MIN_GRIND, DEFAULT_MAX_GRIND));
     }
 
     @Override
