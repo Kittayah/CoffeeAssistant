@@ -1,0 +1,53 @@
+<settings>
+    <grinders>
+        <grinder>
+            <name>Timemore C3</name>
+            <description>Some desc</description>
+            <grindSettings brewingMethod="Aeropress" min="12" max="14"/>
+        </grinder>
+    </grinders>
+    <recipes>
+        <recipe>
+            <name>Test A</name>
+            <description>Description</description>
+            <coffee>Ethiopia</coffee>
+            <brewer>Switch V60</brewer>
+            <grind>Medium-Fine</grind>
+            <totalWater>300</totalWater>
+            <totalTime>210</totalTime>
+            <steps>
+                <step>
+                    <duration>30</duration>
+                    <water>60</water>
+                    <stepInfo>Bloom</stepInfo>
+                </step>
+                <step>
+                    <duration>180</duration>
+                    <water>240</water>
+                    <stepInfo>Brew on closed valve</stepInfo>
+                </step>
+            </steps>
+        </recipe>
+        <recipe>
+            <name>Test B</name>
+            <description>Description</description>
+            <coffee>Ethiopia</coffee>
+            <brewer>Switch V60</brewer>
+            <grind>Medium-Fine</grind>
+            <totalWater>300</totalWater>
+            <totalTime>210</totalTime>
+            <steps>
+                <step>
+                    <duration>30</duration>
+                    <water>60</water>
+                    <stepInfo>Bloom</stepInfo>
+                </step>
+                <step>
+                    <duration>180</duration>
+                    <water>240</water>
+                    <stepInfo>Brew on closed valve</stepInfo>
+                </step>
+            </steps>
+        </recipe>
+    </recipes>
+</settings>

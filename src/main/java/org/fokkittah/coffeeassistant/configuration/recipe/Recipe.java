@@ -12,14 +12,14 @@ public class Recipe {
     String grind;
 
     Integer totalWater;
-    Duration totalTime;
+    Integer totalTime;
 
     List<Step> steps;
 
     public Recipe() {
     }
 
-    public Recipe(String name, String description, String coffee, String brewer, String grind, Integer totalWater, Duration totalTime, List<Step> steps) {
+    public Recipe(String name, String description, String coffee, String brewer, String grind, Integer totalWater, Integer totalTime, List<Step> steps) {
         this.name = name;
         this.description = description;
         this.coffee = coffee;
@@ -54,7 +54,7 @@ public class Recipe {
         return totalWater;
     }
 
-    public Duration getTotalTime() {
+    public Integer getTotalTime() {
         return totalTime;
     }
 
@@ -86,7 +86,7 @@ public class Recipe {
         this.totalWater = totalWater;
     }
 
-    public void setTotalTime(Duration totalTime) {
+    public void setTotalTime(Integer totalTime) {
         this.totalTime = totalTime;
     }
 

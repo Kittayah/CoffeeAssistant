@@ -1,67 +1,45 @@
 package org.fokkittah.coffeeassistant.configuration.grinder;
 
-import org.apache.commons.lang3.Range;
+import java.util.List;
 
 public class Grinder {
     String name;
     String description;
+    List<GrindSettings> grindSettings;
 
-    Range<Integer> aeropressGrindRange;
-    Range<Integer> espressoGrindRange;
-    Range<Integer> mokaPotGrindRange;
-    Range<Integer> v60GrindRange;
-    Range<Integer> frenchPressGrindRange;
-
-    public Grinder(String name, String description, Range<Integer> aeropressGrindRange, Range<Integer> espressoGrindRange, Range<Integer> mokaPotGrindRange, Range<Integer> v60GrindRange, Range<Integer> frenchPressGrindRange) {
-        this.name = name;
-        this.description = description;
-        this.aeropressGrindRange = aeropressGrindRange;
-        this.espressoGrindRange = espressoGrindRange;
-        this.mokaPotGrindRange = mokaPotGrindRange;
-        this.v60GrindRange = v60GrindRange;
-        this.frenchPressGrindRange = frenchPressGrindRange;
+    public Grinder() {
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
 
-    public Range<Integer> getAeropressGrindRange() {
-        return aeropressGrindRange;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Range<Integer> getEspressoGrindRange() {
-        return espressoGrindRange;
+    public List<GrindSettings> getGrindSettings() {
+        return grindSettings;
     }
 
-    public Range<Integer> getMokaPotGrindRange() {
-        return mokaPotGrindRange;
+    public void setGrindSettings(List<GrindSettings> grindSettings) {
+        this.grindSettings = grindSettings;
     }
-
-    public Range<Integer> getV60GrindRange() {
-        return v60GrindRange;
-    }
-
-    public Range<Integer> getFrenchPressGrindRange() {
-        return frenchPressGrindRange;
-    }
-
-
 
     @Override
     public String toString() {
         return "Grinder{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", aeropressGrindRange=" + aeropressGrindRange +
-                ", espressoGrindRange=" + espressoGrindRange +
-                ", mokaPotGrindRange=" + mokaPotGrindRange +
-                ", v60GrindRange=" + v60GrindRange +
-                ", frenchPressGrindRange=" + frenchPressGrindRange +
+                ", grindSettings=" + grindSettings +
                 '}';
     }
 }

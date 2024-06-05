@@ -3,22 +3,16 @@ package org.fokkittah.coffeeassistant.configuration.recipe;
 import java.time.Duration;
 
 public class Step {
-    Duration duration;
-    Integer waterAmount;
+    Integer duration;
+    Integer water;
     String stepInfo;
 
     public Step(){
     }
 
-    public Step(Duration duration, Integer waterAmount, String stepInfo) {
+    public Step(Integer duration, Integer water, String stepInfo) {
         this.duration = duration;
-        this.waterAmount = waterAmount;
-        this.stepInfo = stepInfo;
-    }
-
-    public Step(String duration, String waterAmount, String stepInfo) {
-        this.duration = Duration.parse(duration);
-        this.waterAmount = Integer.parseInt(waterAmount);
+        this.water = water;
         this.stepInfo = stepInfo;
     }
 
@@ -26,17 +20,17 @@ public class Step {
     public String toString() {
         return "Step{" +
                 "duration=" + duration +
-                ", waterAmount=" + waterAmount +
+                ", waterAmount=" + water +
                 ", stepInfo='" + stepInfo + '\'' +
                 '}';
     }
 
-    public Duration getDuration() {
+    public Integer getDuration() {
         return duration;
     }
 
-    public Integer getWaterAmount() {
-        return waterAmount;
+    public Integer getWater() {
+        return water;
     }
 
     public String getStepInfo() {
