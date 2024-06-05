@@ -2,7 +2,6 @@ package org.fokkittah.coffeeassistant.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -16,7 +15,6 @@ public class SettingsService {
 
     public SettingsService() {
         xmlMapper = new XmlMapper();
-        xmlMapper.registerModule(new JavaTimeModule());
     }
 
     public void saveSettings(Settings settings, String filePath) throws IOException {
