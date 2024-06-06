@@ -2,13 +2,10 @@ package org.fokkittah.coffeeassistant.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import org.fokkittah.coffeeassistant.configuration.grinder.Grinder;
-import org.springframework.stereotype.Service;
-
 import java.io.File;
-import java.io.FileNotFoundException;
+
 import java.io.IOException;
-import java.util.Collections;
+
 
 public class SettingsService {
 
@@ -28,12 +25,14 @@ public class SettingsService {
         if(!file.exists()){
             file.createNewFile();
         }
+        this.settings = settings;
         xmlMapper.writeValue(file, settings);
         System.out.println("SAVED: " + file.getPath());
     }
 
     public Settings loadSettings(String filePath) throws IOException {
-        return xmlMapper.readValue(new File(filePath), Settings.class);
+        this.settings = xmlMapper.readValue(new File(filePath), Settings.class);
+        return settings;
     }
 
     public Settings loadSettings(){
@@ -57,6 +56,15 @@ public class SettingsService {
     public void saveSettings(Settings settings){
         try {
             saveSettings(settings, getDefaultFileName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void saveSettings(){
+        try {
+            saveSettings(this.settings, getDefaultFileName());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

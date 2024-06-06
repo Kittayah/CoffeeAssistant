@@ -29,6 +29,29 @@
         </grinder>
         <grinder>
             <name>Commandante C40</name>
+            <description>The Commandante C40 is a premium hand grinder that is designed for coffee enthusiasts who demand the best in terms of quality and performance. It features high-quality stainless steel burrs that are precision-machined to deliver consistent and uniform grind size, resulting in optimal flavor extraction. The grinder has a stepless grind adjustment mechanism that allows users to fine-tune the grind size to suit their brewing method and coffee beans. The Commandante C40 is known for its durable construction, ergonomic design, and smooth grinding operation, making it a favorite among specialty coffee professionals and home baristas</description>
+            <grindSettings>
+                <setting>
+                    <brewingMethod>Aeropress</brewingMethod>
+                    <min>8</min>
+                    <max>12</max>
+                </setting>
+                <setting>
+                    <brewingMethod>Espresso</brewingMethod>
+                    <min>6</min>
+                    <max>8</max>
+                </setting>
+                <setting>
+                    <brewingMethod>Moka Pot</brewingMethod>
+                    <min>7</min>
+                    <max>9</max>
+                </setting>
+                <setting>
+                    <brewingMethod>French Press</brewingMethod>
+                    <min>14</min>
+                    <max>18</max>
+                </setting>
+            </grindSettings>
         </grinder>
     </grinders>
     <recipes>

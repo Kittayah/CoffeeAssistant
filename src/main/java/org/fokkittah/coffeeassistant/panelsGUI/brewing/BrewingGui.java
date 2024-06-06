@@ -1,7 +1,9 @@
 package org.fokkittah.coffeeassistant.panelsGUI.brewing;
 
+import org.fokkittah.coffeeassistant.configuration.SettingsService;
 import org.fokkittah.coffeeassistant.configuration.recipe.Step;
 import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
+import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
@@ -9,6 +11,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 
 public class BrewingGui {
     private JPanel mainPanel;
@@ -48,8 +51,11 @@ public class BrewingGui {
     public static int progressBarStep = 100;
     Iterator<Step> stepIterator;
 
+    private SettingsService settingsService;
 
-    public BrewingGui(CardLayoutManager manager) {
+
+    public BrewingGui(CardLayoutManager manager, SettingsService settingsService) {
+        this.settingsService = settingsService;
         goBackButton.addActionListener(e -> manager.switchPanel("main"));
 
         //move me to form ^^

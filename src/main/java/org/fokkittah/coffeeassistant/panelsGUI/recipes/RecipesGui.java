@@ -1,8 +1,10 @@
 package org.fokkittah.coffeeassistant.panelsGUI.recipes;
 
+import org.fokkittah.coffeeassistant.configuration.SettingsService;
 import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
 
 import javax.swing.*;
+
 
 public class RecipesGui {
     private JPanel mainPanel;
@@ -27,7 +29,10 @@ public class RecipesGui {
     private JLabel totalCoffeAmountSummaryLabel;
     private JButton editStepsButton;
 
-    public RecipesGui(CardLayoutManager manager) {
+    private SettingsService settingsService;
+
+    public RecipesGui(CardLayoutManager manager, SettingsService settingsService) {
+        this.settingsService = settingsService;
         goBackButton.addActionListener(e -> manager.switchPanel("main"));
     }
 

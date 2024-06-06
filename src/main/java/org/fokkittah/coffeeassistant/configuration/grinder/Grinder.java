@@ -1,5 +1,6 @@
 package org.fokkittah.coffeeassistant.configuration.grinder;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ public class Grinder {
     List<GrindSettings> grindSettings;
 
     public Grinder() {
+        grindSettings = new ArrayList<>();
     }
 
     public String getName() {
