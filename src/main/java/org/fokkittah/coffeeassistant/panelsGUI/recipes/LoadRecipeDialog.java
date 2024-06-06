@@ -71,20 +71,20 @@ public class LoadRecipeDialog extends JDialog {
         Recipe selectedRecipe = (Recipe) recipeComboBox.getSelectedItem();
         if (selectedRecipe == null) {
             JOptionPane.showMessageDialog(this, "Please select a recipe to load", "Error", JOptionPane.ERROR_MESSAGE);
+        }else {
+            loadRecipe(selectedRecipe, recipesGui);
+            dispose();
         }
 
-        recipesGui.getRecipeInput().setText(selectedRecipe.getName()); //
-        recipesGui.getDescriptionTextArea().setText(selectedRecipe.getDescription());
-        recipesGui.getCoffeInput().setText(selectedRecipe.getCoffee());
-        recipesGui.getGrindTextField().setText(selectedRecipe.getGrind());
+    }
 
-        recipesGui.getTotalWaterSummaryLabel().setText(selectedRecipe.getTotalWater().toString());
-        recipesGui.getTotalCoffeAmountSummaryLabel().setText(selectedRecipe.getTotalTime().toString());
-
-
-
-
-        dispose();
+    public void loadRecipe(Recipe recipe, RecipesGui recipesGui) {
+        recipesGui.getRecipeInput().setText(recipe.getName());
+        recipesGui.getDescriptionTextArea().setText(recipe.getDescription());
+        recipesGui.getCoffeInput().setText(recipe.getCoffee());
+        recipesGui.getGrindTextField().setText(recipe.getGrind());
+        recipesGui.getTotalWaterSummaryLabel().setText(recipe.getTotalWater().toString());
+        recipesGui.getTotalCoffeAmountSummaryLabel().setText(recipe.getTotalTime().toString());
     }
 
     private void onCancel() {

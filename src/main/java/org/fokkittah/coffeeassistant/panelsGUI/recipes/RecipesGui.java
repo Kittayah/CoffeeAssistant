@@ -1,13 +1,9 @@
 package org.fokkittah.coffeeassistant.panelsGUI.recipes;
 
 import org.fokkittah.coffeeassistant.configuration.SettingsService;
-import org.fokkittah.coffeeassistant.panelsGUI.settings.AddGrinderDialog;
 import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
-import org.fokkittah.coffeeassistant.utils.comboBoxGrinderRenderer;
 
 import javax.swing.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 
 public class RecipesGui {
@@ -28,8 +24,18 @@ public class RecipesGui {
     private JLabel totalWaterSummaryLabel;
     private JLabel totalCoffeeAmountLabel;
     private JLabel totalCoffeAmountSummaryLabel;
-    private JButton editStepsButton;
     private JTextField grindTextField;
+    private JButton deleteStepButton;
+    private JPanel inputPanel;
+    private JLabel stepDurationLabel;
+    private JLabel stepWaterLabel;
+    private JTextField stepDurationInput;
+    private JTextField stepWaterInput;
+    private JTextField stepInfoInput;
+    private JTable table1;
+    private JButton addStepButton;
+    private JButton moveUpStepButton;
+    private JButton moveDownStepButton;
 
     private SettingsService settingsService;
 
@@ -37,29 +43,44 @@ public class RecipesGui {
         this.settingsService = settingsService;
         goBackButton.addActionListener(e -> manager.switchPanel("main"));
 
-//        fillRecipeComboBox(settingsService.getSettings().getRecipes());
-//        recipe
-//
-//
-//        loadButton.addActionListener(e -> {
-//            AddGrinderDialog addGrinderDialog = new AddGrinderDialog(settingsService);
-//            addGrinderDialog.pack();
-//            addGrinderDialog.setVisible(true);
-//            addGrinderDialog.addWindowListener(new WindowAdapter() {
-//                @Override
-//                public void windowClosed(WindowEvent event){
-//                    fillGrinderComboBox(settingsService.getSettings().getGrinders());
-//                    grinderComboBox.setRenderer(new comboBoxGrinderRenderer());
-//                }
-//            });
-//        });
-
         loadButton.addActionListener(e -> {
             LoadRecipeDialog loadRecipeDialog = new LoadRecipeDialog(settingsService, this);
             loadRecipeDialog.pack();
             loadRecipeDialog.setVisible(true);
         });
 
+        newButton.addActionListener(e -> {
+            clearRecipeFields();
+        });
+
+        saveButton.addActionListener(e -> {
+            //todo
+            checkIfFieldsAreFilled();
+        });
+
+
+    }
+
+    private void checkIfFieldsAreFilled() {
+        // also check if the fields are not "type here..."
+        if (recipeInput.getText().isEmpty() || coffeInput.getText().isEmpty() || grindTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty()
+                || descriptionTextArea.getText().equals("type here...") || grindTextField.getText().equals("type here...") || coffeInput.getText().equals("type here...") || recipeInput.getText().equals("type here...")) {
+                 JOptionPane.showMessageDialog(mainPanel, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            //todo
+//            RecipeStepsDialog recipeStepsDialog = new RecipeStepsDialog(settingsService, this);
+//            recipeStepsDialog.pack();
+//            recipeStepsDialog.setVisible(true);
+        }
+    }
+
+    private void clearRecipeFields() {
+        recipeInput.setText("");
+        coffeInput.setText("");
+        grindTextField.setText("");
+        descriptionTextArea.setText("");
+        totalWaterSummaryLabel.setText("0g");
+        totalCoffeAmountSummaryLabel.setText("0g");
     }
 
     public JPanel getPanel() {
