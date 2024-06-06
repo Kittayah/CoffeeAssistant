@@ -8,7 +8,6 @@ public class Recipe {
     String description;
 
     String coffee;
-    String brewer;
     String grind;
 
     Integer totalWater;
@@ -19,11 +18,10 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String description, String coffee, String brewer, String grind, Integer totalWater, Integer totalTime, List<Step> steps) {
+    public Recipe(String name, String description, String coffee, String grind, Integer totalWater, Integer totalTime, List<Step> steps) {
         this.name = name;
         this.description = description;
         this.coffee = coffee;
-        this.brewer = brewer;
         this.grind = grind;
         this.totalWater = totalWater;
         this.totalTime = totalTime;
@@ -40,10 +38,6 @@ public class Recipe {
 
     public String getCoffee() {
         return coffee;
-    }
-
-    public String getBrewer() {
-        return brewer;
     }
 
     public String getGrind() {
@@ -74,10 +68,6 @@ public class Recipe {
         this.coffee = coffee;
     }
 
-    public void setBrewer(String brewer) {
-        this.brewer = brewer;
-    }
-
     public void setGrind(String grind) {
         this.grind = grind;
     }
@@ -100,7 +90,6 @@ public class Recipe {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", coffee='" + coffee + '\'' +
-                ", brewer='" + brewer + '\'' +
                 ", grind='" + grind + '\'' +
                 ", totalWater=" + totalWater +
                 ", totalTime=" + totalTime +

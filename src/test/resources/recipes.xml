@@ -3,7 +3,6 @@
         <name>Test A</name>
         <description>Description</description>
         <coffee>Ethiopia</coffee>
-        <brewer>Switch V60</brewer>
         <grind>Medium-Fine</grind>
         <totalWater>300</totalWater>
         <totalTime>PT3M30S</totalTime>
@@ -24,7 +23,6 @@
         <name>Test B</name>
         <description>Description</description>
         <coffee>Ethiopia</coffee>
-        <brewer>Switch V60</brewer>
         <grind>Medium-Fine</grind>
         <totalWater>300</totalWater>
         <totalTime>PT3M30S</totalTime>

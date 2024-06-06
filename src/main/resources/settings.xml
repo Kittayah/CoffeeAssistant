@@ -59,10 +59,9 @@
             <name>Test A</name>
             <description>Description</description>
             <coffee>Ethiopia</coffee>
-            <brewer>Switch V60</brewer>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>210</totalTime>
+            <totalTime>18</totalTime>
             <steps>
                 <step>
                     <duration>30</duration>
@@ -80,10 +79,9 @@
             <name>Test B</name>
             <description>Description</description>
             <coffee>Ethiopia</coffee>
-            <brewer>Switch V60</brewer>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>210</totalTime>
+            <totalTime>21</totalTime>
             <steps>
                 <step>
                     <duration>30</duration>

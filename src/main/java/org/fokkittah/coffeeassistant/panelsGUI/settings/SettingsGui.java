@@ -10,6 +10,7 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -78,12 +79,15 @@ public class SettingsGui {
 //            SwingUtilities.updateComponentTreeUI(mainPanel.getRootPane());
         }); //todo
 //
-//        //set default grinder button
-//        setDefaultGrinder.addActionListener(e -> {
-//            currentSelectedGrinder = grinderComboBox.getSelectedItem();
-//            grinderLoader.setDefaultGrinder(currentSelectedGrinder);
-//        }); //todo
-//
+        //set default grinder button
+        setDefaultGrinder.addActionListener(e -> {
+            List<Grinder> grinders = settingsService.getSettings().getGrinders();
+            Grinder currentSelectedGrinder = (Grinder) grinderComboBox.getSelectedItem();
+            grinders.remove(currentSelectedGrinder);
+            grinders.addFirst(currentSelectedGrinder);
+            settingsService.saveSettings();
+        }); //todo
+
 //        // User selects grinder
         grinderComboBox.addActionListener(e -> {
             Grinder selectedGrinder = (Grinder) grinderComboBox.getSelectedItem();
