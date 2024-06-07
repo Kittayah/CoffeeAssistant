@@ -95,5 +95,55 @@
                 </step>
             </steps>
         </recipe>
+        <recipe>
+            <name>Ice Coffee Sweet Shot</name>
+            <description>Very tasty combination when you need to cool down and chill out.</description>
+            <coffee>Brazil Sweet Shot</coffee>
+            <grind>Medium-Fine</grind>
+            <totalWater>185</totalWater>
+            <totalCoffee>21</totalCoffee>
+            <steps>
+                <step>
+                    <duration>10</duration>
+                    <water>0</water>
+                    <stepInfo>Prepare 90g of ice in a different cup</stepInfo>
+                </step>
+                <step>
+                    <duration>10</duration>
+                    <water>0</water>
+                    <stepInfo>Put 21g of coffee into your brewer</stepInfo>
+                </step>
+                <step>
+                    <duration>10</duration>
+                    <water>0</water>
+                    <stepInfo>Bring water to boil, wait till its 97-98C and get ready...</stepInfo>
+                </step>
+                <step>
+                    <duration>45</duration>
+                    <water>65</water>
+                    <stepInfo>Pour water fast into the brewer, spin and let it brew</stepInfo>
+                </step>
+                <step>
+                    <duration>30</duration>
+                    <water>120</water>
+                    <stepInfo>Pour water slowly, drawing circles</stepInfo>
+                </step>
+                <step>
+                    <duration>180</duration>
+                    <water>0</water>
+                    <stepInfo>Let it brew, spin a little and enjoy the smell...</stepInfo>
+                </step>
+                <step>
+                    <duration>10</duration>
+                    <water>0</water>
+                    <stepInfo>Add 10g caramel, then 30g of water, stir thoroughly</stepInfo>
+                </step>
+                <step>
+                    <duration>10</duration>
+                    <water>0</water>
+                    <stepInfo>Pour over to the cup with ice fast, enjoy!</stepInfo>
+                </step>
+            </steps>
+        </recipe>
     </recipes>
 </settings>
