@@ -4,12 +4,9 @@ import org.fokkittah.coffeeassistant.configuration.SettingsService;
 import org.fokkittah.coffeeassistant.configuration.recipe.Recipe;
 import org.fokkittah.coffeeassistant.configuration.recipe.Step;
 import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
-import org.fokkittah.coffeeassistant.utils.RecipeStepTableRenderer;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableColumnModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -216,10 +213,10 @@ public class RecipesGui {
         return recipeStepsTable.getRowCount() > 0;
     }
 
-    private boolean isUniqueCoffee(String coffee) {
+    private boolean isUniqueCoffeeRecipe(String recipeName) {
         List<Recipe> recipes = settingsService.getSettings().getRecipes();
         for (Recipe recipe : recipes) {
-            if (recipe.getCoffee().equals(coffee)) {
+            if (recipe.getName().equals(recipeName)) {
                 return false;
             }
         }
@@ -257,7 +254,7 @@ public class RecipesGui {
         } else if (!isStepListNotEmpty()) {
             JOptionPane.showMessageDialog(mainPanel, "Please add at least one step to the recipe", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
-        } else if (!isUniqueCoffee(coffeInput.getText())) {
+        } else if (!isUniqueCoffeeRecipe(recipeInput.getText())) {
             JOptionPane.showMessageDialog(mainPanel, "Coffee name must be unique", "Error", JOptionPane.ERROR_MESSAGE);
             return false;
         } else {
