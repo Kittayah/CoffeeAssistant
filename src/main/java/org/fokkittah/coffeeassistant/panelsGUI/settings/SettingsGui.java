@@ -75,9 +75,9 @@ public class SettingsGui {
                     grinderComboBox.setRenderer(new ComboBoxGrinderRenderer());
                 }
             });
-//            SwingUtilities.updateComponentTreeUI(mainPanel.getRootPane());
-        }); //todo
-//
+
+        });
+
         //set default grinder button
         setDefaultGrinder.addActionListener(e -> {
             List<Grinder> grinders = settingsService.getSettings().getGrinders();
@@ -85,9 +85,9 @@ public class SettingsGui {
             grinders.remove(currentSelectedGrinder);
             grinders.addFirst(currentSelectedGrinder);
             settingsService.saveSettings();
-        }); //todo
+        });
 
-//        // User selects grinder
+
         grinderComboBox.addActionListener(e -> {
             Grinder selectedGrinder = (Grinder) grinderComboBox.getSelectedItem();
 

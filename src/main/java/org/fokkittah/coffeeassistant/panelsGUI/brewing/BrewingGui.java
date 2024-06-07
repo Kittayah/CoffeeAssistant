@@ -14,8 +14,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
-
 public class BrewingGui {
+
     private JPanel mainPanel;
     private JPanel leftSideControlPanel;
     private JLabel recipeLabel;
@@ -35,8 +35,13 @@ public class BrewingGui {
     private JLabel incomingStepsLabel;
     private JLabel recipeInfoLabel;
 
-    // progress bar
     private JProgressBar brewingProgressBar;
+    public static final int PROGRESS_BAR_MAX_VALUE = 100000; // 100 seconds
+    public static final int PROGRESS_BAR_REFRESH_DELAY = 1000; // 1 second
+    public static int progressBarStep = 1000; // 1 second step
+    Iterator<Step> stepIterator;
+    private Timer timer;
+
     private JLabel coffeeAmountLabel;
     private JLabel coffeeAmountValueLabel;
     private JLabel waterAmountLabel;
@@ -53,14 +58,10 @@ public class BrewingGui {
     private JLabel waterToPourValue;
     private JScrollPane currentStepScrollPanel;
     private JTextArea currentStepTextArea;
-    private Timer timer;
-    public static final int PROGRESS_BAR_MAX_VALUE = 100000;
-    public static final int PROGRESS_BAR_REFRESH_DELAY = 1000;
-    public static int progressBarStep = 1000;
-    Iterator<Step> stepIterator;
+    private JLabel coffeeKindLabel;
+    private JLabel coffeeKindValueLabel;
 
     SettingsService settingsService;
-
 
     public BrewingGui(CardLayoutManager manager, SettingsService settingsService) {
         this.settingsService = settingsService;
@@ -68,7 +69,6 @@ public class BrewingGui {
         initializeRecipeStepsTable();
         initializeRecipeComboBox();
         initializeProgressBar();
-
     }
 
     private void initializeRecipeStepsTable(){
@@ -89,16 +89,6 @@ public class BrewingGui {
     }
 
     private void clearRecipeStepsTable(){
-        DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
-        model.setRowCount(0);
-    }
-
-    private void clearRecipeInfoPanel(){
-        recipeInfoLabel.setText("");
-        coffeeAmountValueLabel.setText("");
-        waterAmountValueLabel.setText("");
-        grinderSettingValueLabel.setText("");
-        totalTimeValueLabel.setText("");
         DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
         model.setRowCount(0);
     }
@@ -200,6 +190,7 @@ public class BrewingGui {
         Recipe selectedRecipe = (Recipe) recipeComboBox.getSelectedItem();
         if(selectedRecipe != null){
             recipeInfoLabel.setText(selectedRecipe.getName());
+            coffeeKindValueLabel.setText(selectedRecipe.getCoffee());
             coffeeAmountValueLabel.setText(selectedRecipe.getTotalCoffee().toString());
             waterAmountValueLabel.setText(selectedRecipe.getTotalWater().toString());
             grinderSettingValueLabel.setText(selectedRecipe.getGrind());
@@ -214,30 +205,6 @@ public class BrewingGui {
             model.addRow(new Object[]{String.valueOf(step.getDuration()), String.valueOf(step.getWater()), step.getStepInfo()});
         }
     }
-
-    //progress bar logic
-
-
-
-//    void startProgressBar(){
-//        List<Step> stepList = new ArrayList<>();
-//        //example, to be replaced with steps from recipe
-////        stepList.add(new Step(1, 60, "Bloom"));
-////        stepList.add(new Step(5, 240, "Brew on closed valve"));
-////        stepList.add(new Step(20, 240, "Brew on closed valve"));
-//        stepIterator = stepList.iterator();
-//        updateProgressBar();
-//    }
-
-//    void updateProgressBar(){
-//        if(stepIterator.hasNext()){
-//            Step currentStep = stepIterator.next();
-//            int stepDuration = currentStep.getDuration();
-//            progressBarStep = Math.toIntExact(PROGRESS_BAR_MAX_VALUE / PROGRESS_BAR_REFRESH_DELAY / stepDuration);
-//            timer = new Timer(PROGRESS_BAR_REFRESH_DELAY, progressBarUpdater);
-//            timer.start();
-//        }
-//    }
 
     private String convertTotalTimeFromSecondsToMinutes(int totalTimeInSeconds){
         int minutes = totalTimeInSeconds / 60;
@@ -268,9 +235,5 @@ public class BrewingGui {
     public JPanel getPanel() {
         return mainPanel;
     }
-
-
-
-
 
 }

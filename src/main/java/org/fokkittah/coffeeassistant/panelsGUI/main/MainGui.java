@@ -27,11 +27,6 @@ public class MainGui {
         startBrewing.addActionListener(e -> manager.switchPanel(BREWING));
         configureSettings.addActionListener(e -> manager.switchPanel(SETTINGS));
 
-//                           ╱|、
-//                          (˚ˎ 。7
-//                           |、˜〵
-//                          じしˍ,)ノ
-
     }
 
     public JPanel getPanel() {
@@ -39,3 +34,8 @@ public class MainGui {
     }
 
 }
+
+//                           ╱|、
+//                          (˚ˎ 。7
+//                           |、˜〵
+//                          じしˍ,)ノ

@@ -100,7 +100,6 @@ public class RecipesGui {
     }
 
     private void saveRecipe() {
-        //todo
         Recipe recipe = new Recipe();
         recipe.setName(recipeInput.getText());
         recipe.setDescription(descriptionTextArea.getText());
@@ -112,7 +111,6 @@ public class RecipesGui {
 
         settingsService.getSettings().getRecipes().add(recipe);
         settingsService.saveSettings();
-
     }
 
     private int getAllWaterFromStepsInTable() {
@@ -188,7 +186,10 @@ public class RecipesGui {
 
     private boolean isValidNumber(String input) {
         try {
-            Double.parseDouble(input);
+            Integer.parseInt(input);
+            if (Integer.valueOf(input) < 0){
+                return false;
+            }
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -196,11 +197,41 @@ public class RecipesGui {
     }
 
     private boolean isValidStepDuration(String input) {
-        if (input.matches("\\d+:\\d{2}") || isValidNumber(input)) {
+        if (input.matches("[1-9]\\d*:\\d{2}") || isValidNumber(input)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    private boolean isValidRecipeInput(String input) {
+        return input.length() <= 40;
+    }
+
+    private boolean isValidGrindInput(String input) {
+        return input.length() <= 15;
+    }
+
+    private boolean isValidCoffeeInput(String input) {
+        return input.length() <= 25;
+    }
+
+    private boolean isValidDescriptionInput(String input) {
+        return input.length() <= 400;
+    }
+
+    private boolean isStepListNotEmpty() {
+        return recipeStepsTable.getRowCount() > 0;
+    }
+
+    private boolean isUniqueCoffee(String coffee) {
+        List<Recipe> recipes = settingsService.getSettings().getRecipes();
+        for (Recipe recipe : recipes) {
+            if (recipe.getCoffee().equals(coffee)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private String convertToSeconds(String input) {
@@ -218,8 +249,26 @@ public class RecipesGui {
         // also check if the fields are not "type here..."
         if (recipeInput.getText().isEmpty() || coffeInput.getText().isEmpty() || grindTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty()
                 || descriptionTextArea.getText().equals("type here...") || grindTextField.getText().equals("type here...") || coffeInput.getText().equals("type here...") || recipeInput.getText().equals("type here...")) {
-                 JOptionPane.showMessageDialog(mainPanel, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
-                 return false;
+            JOptionPane.showMessageDialog(mainPanel, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isValidRecipeInput(recipeInput.getText())) {
+            JOptionPane.showMessageDialog(mainPanel, "Recipe name is too long, cannot be more than 40 characters", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isValidCoffeeInput(coffeInput.getText())) {
+            JOptionPane.showMessageDialog(mainPanel, "Coffee name is too long, cannot be longer than 25 characters", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isValidGrindInput(grindTextField.getText())) {
+            JOptionPane.showMessageDialog(mainPanel, "Grind name is too long, cannot be longer than 15 characters", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isValidDescriptionInput(descriptionTextArea.getText())) {
+            JOptionPane.showMessageDialog(mainPanel, "Description is too long, cannot be longer than 400 characters", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isStepListNotEmpty()) {
+            JOptionPane.showMessageDialog(mainPanel, "Please add at least one step to the recipe", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } else if (!isUniqueCoffee(coffeInput.getText())) {
+            JOptionPane.showMessageDialog(mainPanel, "Coffee name must be unique", "Error", JOptionPane.ERROR_MESSAGE);
+            return false;
         } else {
             return true;
         }
