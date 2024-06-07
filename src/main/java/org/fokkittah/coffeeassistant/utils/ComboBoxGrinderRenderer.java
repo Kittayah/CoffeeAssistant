@@ -5,7 +5,7 @@ import org.fokkittah.coffeeassistant.configuration.grinder.Grinder;
 import javax.swing.*;
 import java.awt.*;
 
-public class comboBoxGrinderRenderer extends DefaultListCellRenderer {
+public class ComboBoxGrinderRenderer extends DefaultListCellRenderer {
 
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {

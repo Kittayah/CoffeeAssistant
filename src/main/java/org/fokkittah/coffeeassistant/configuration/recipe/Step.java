@@ -36,4 +36,16 @@ public class Step {
     public String getStepInfo() {
         return stepInfo;
     }
+
+    public void setDuration(Integer duration) {
+        this.duration = duration;
+    }
+
+    public void setWater(Integer water) {
+        this.water = water;
+    }
+
+    public void setStepInfo(String stepInfo) {
+        this.stepInfo = stepInfo;
+    }
 }

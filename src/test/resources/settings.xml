@@ -2,7 +2,8 @@
     <grinders>
         <grinder>
             <name>Timemore C3</name>
-            <description>Some desc</description>
+            <description>The Timemore C3 grinder is a compact and portable manual coffee grinder designed for coffee enthusiasts. It features high-quality stainless steel conical burrs for precise and consistent grinding, which enhances the flavor extraction of coffee beans. The grinder has an adjustable grind size setting, allowing users to customize the coarseness for different brewing methods such as espresso, pour-over, and French press. Its ergonomic design, durable aluminum alloy body, and easy-to-use crank handle make it a reliable and efficient tool for both home and travel use. The Timemore C3 is known for its affordability and performance, making it a popular choice among coffee lovers.
+            </description>
             <grindSettings>
                 <setting>
                     <brewingMethod>Aeropress</brewingMethod>
@@ -26,6 +27,32 @@
                 </setting>
             </grindSettings>
         </grinder>
+        <grinder>
+            <name>Commandante C40</name>
+            <description>The Commandante C40 is a premium hand grinder that is designed for coffee enthusiasts who demand the best in terms of quality and performance. It features high-quality stainless steel burrs that are precision-machined to deliver consistent and uniform grind size, resulting in optimal flavor extraction. The grinder has a stepless grind adjustment mechanism that allows users to fine-tune the grind size to suit their brewing method and coffee beans. The Commandante C40 is known for its durable construction, ergonomic design, and smooth grinding operation, making it a favorite among specialty coffee professionals and home baristas</description>
+            <grindSettings>
+                <setting>
+                    <brewingMethod>Aeropress</brewingMethod>
+                    <min>8</min>
+                    <max>12</max>
+                </setting>
+                <setting>
+                    <brewingMethod>Espresso</brewingMethod>
+                    <min>6</min>
+                    <max>8</max>
+                </setting>
+                <setting>
+                    <brewingMethod>Moka Pot</brewingMethod>
+                    <min>7</min>
+                    <max>9</max>
+                </setting>
+                <setting>
+                    <brewingMethod>French Press</brewingMethod>
+                    <min>14</min>
+                    <max>18</max>
+                </setting>
+            </grindSettings>
+        </grinder>
     </grinders>
     <recipes>
         <recipe>
@@ -34,7 +61,7 @@
             <coffee>Ethiopia</coffee>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>210</totalTime>
+            <totalCoffee>18</totalCoffee>
             <steps>
                 <step>
                     <duration>30</duration>
@@ -54,7 +81,7 @@
             <coffee>Ethiopia</coffee>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>210</totalTime>
+            <totalCoffee>21</totalCoffee>
             <steps>
                 <step>
                     <duration>30</duration>

@@ -2,11 +2,10 @@ package org.fokkittah.coffeeassistant.panelsGUI.recipes;
 
 import org.fokkittah.coffeeassistant.configuration.SettingsService;
 import org.fokkittah.coffeeassistant.configuration.recipe.Recipe;
-import org.fokkittah.coffeeassistant.utils.comboBoxRecipeRenderer;
+import org.fokkittah.coffeeassistant.utils.ComboBoxRecipeRenderer;
 
 import javax.swing.*;
 import java.awt.event.*;
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -55,7 +54,7 @@ public class LoadRecipeDialog extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
         fillRecipeComboBox(settingsService.getSettings().getRecipes());
-        recipeComboBox.setRenderer(new comboBoxRecipeRenderer());
+        recipeComboBox.setRenderer(new ComboBoxRecipeRenderer());
 
 
 
@@ -84,7 +83,9 @@ public class LoadRecipeDialog extends JDialog {
         recipesGui.getCoffeInput().setText(recipe.getCoffee());
         recipesGui.getGrindTextField().setText(recipe.getGrind());
         recipesGui.getTotalWaterSummaryLabel().setText(recipe.getTotalWater().toString());
-        recipesGui.getTotalCoffeAmountSummaryLabel().setText(recipe.getTotalTime().toString());
+        recipesGui.getTotalCoffeAmountSummaryLabel().setText(recipe.getTotalCoffee().toString());
+        recipesGui.getCoffeeAmountSpinner().setValue(recipe.getTotalCoffee());
+        recipesGui.loadRecipeStepsIntoTable(recipe.getSteps());
     }
 
     private void onCancel() {

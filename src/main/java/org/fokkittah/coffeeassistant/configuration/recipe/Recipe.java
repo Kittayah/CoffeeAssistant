@@ -1,6 +1,5 @@
 package org.fokkittah.coffeeassistant.configuration.recipe;
 
-import java.time.Duration;
 import java.util.List;
 
 public class Recipe {
@@ -11,20 +10,20 @@ public class Recipe {
     String grind;
 
     Integer totalWater;
-    Integer totalTime;
+    Integer totalCoffee;
 
     List<Step> steps;
 
     public Recipe() {
     }
 
-    public Recipe(String name, String description, String coffee, String grind, Integer totalWater, Integer totalTime, List<Step> steps) {
+    public Recipe(String name, String description, String coffee, String grind, Integer totalWater, Integer totalCoffee, List<Step> steps) {
         this.name = name;
         this.description = description;
         this.coffee = coffee;
         this.grind = grind;
         this.totalWater = totalWater;
-        this.totalTime = totalTime;
+        this.totalCoffee = totalCoffee;
         this.steps = steps;
     }
 
@@ -48,8 +47,8 @@ public class Recipe {
         return totalWater;
     }
 
-    public Integer getTotalTime() {
-        return totalTime;
+    public Integer getTotalCoffee() {
+        return totalCoffee;
     }
 
     public List<Step> getSteps() {
@@ -76,8 +75,8 @@ public class Recipe {
         this.totalWater = totalWater;
     }
 
-    public void setTotalTime(Integer totalTime) {
-        this.totalTime = totalTime;
+    public void setTotalCoffee(Integer totalCoffee) {
+        this.totalCoffee = totalCoffee;
     }
 
     public void setSteps(List<Step> steps) {
@@ -92,7 +91,7 @@ public class Recipe {
                 ", coffee='" + coffee + '\'' +
                 ", grind='" + grind + '\'' +
                 ", totalWater=" + totalWater +
-                ", totalTime=" + totalTime +
+                ", totalCoffee=" + totalCoffee +
                 ", steps=" + steps +
                 '}';
     }

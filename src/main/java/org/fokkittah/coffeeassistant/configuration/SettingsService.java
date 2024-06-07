@@ -2,6 +2,8 @@ package org.fokkittah.coffeeassistant.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.fokkittah.coffeeassistant.configuration.recipe.Recipe;
+
 import java.io.File;
 
 import java.io.IOException;
@@ -43,6 +45,22 @@ public class SettingsService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public int summarizeTotalWaterInRecipe(Recipe recipe){
+        int totalWater = 0;
+        for (int i = 0; i < recipe.getSteps().size(); i++) {
+            totalWater += recipe.getSteps().get(i).getWater();
+        }
+        return totalWater;
+    }
+
+    public int summarizeTotalTimeInRecipeInSeconds(Recipe recipe){
+        int totalTime = 0;
+        for (int i = 0; i < recipe.getSteps().size(); i++) {
+            totalTime += recipe.getSteps().get(i).getDuration();
+        }
+        return totalTime;
     }
 
     private String getDefaultDirectory() {

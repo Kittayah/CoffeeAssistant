@@ -4,13 +4,12 @@ import org.fokkittah.coffeeassistant.configuration.SettingsService;
 import org.fokkittah.coffeeassistant.configuration.grinder.GrindSettings;
 import org.fokkittah.coffeeassistant.configuration.grinder.Grinder;
 import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
-import org.fokkittah.coffeeassistant.utils.comboBoxGrinderRenderer;
+import org.fokkittah.coffeeassistant.utils.ComboBoxGrinderRenderer;
 import javax.swing.*;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 
@@ -54,7 +53,7 @@ public class SettingsGui {
 
         // Initialize grinder combo box
         fillGrinderComboBox(settingsService.getSettings().getGrinders());
-        grinderComboBox.setRenderer(new comboBoxGrinderRenderer());
+        grinderComboBox.setRenderer(new ComboBoxGrinderRenderer());
 
 
 
@@ -73,7 +72,7 @@ public class SettingsGui {
                 @Override
                 public void windowClosed(WindowEvent event){
                     fillGrinderComboBox(settingsService.getSettings().getGrinders());
-                    grinderComboBox.setRenderer(new comboBoxGrinderRenderer());
+                    grinderComboBox.setRenderer(new ComboBoxGrinderRenderer());
                 }
             });
 //            SwingUtilities.updateComponentTreeUI(mainPanel.getRootPane());

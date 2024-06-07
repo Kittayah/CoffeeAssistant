@@ -61,7 +61,7 @@
             <coffee>Ethiopia</coffee>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>18</totalTime>
+            <totalCoffee>18</totalCoffee>
             <steps>
                 <step>
                     <duration>30</duration>
@@ -81,7 +81,7 @@
             <coffee>Ethiopia</coffee>
             <grind>Medium-Fine</grind>
             <totalWater>300</totalWater>
-            <totalTime>21</totalTime>
+            <totalCoffee>21</totalCoffee>
             <steps>
                 <step>
                     <duration>30</duration>

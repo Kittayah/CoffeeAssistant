@@ -5,7 +5,7 @@ import org.fokkittah.coffeeassistant.configuration.recipe.Recipe;
 import javax.swing.*;
 import java.awt.*;
 
-public class comboBoxRecipeRenderer extends DefaultListCellRenderer {
+public class ComboBoxRecipeRenderer extends DefaultListCellRenderer {
 
     @Override
     public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
