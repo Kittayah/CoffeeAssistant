@@ -43,6 +43,8 @@ public class CardLayoutManager extends JFrame{
         appCards.show(cardsPanel, panelName);
     }
 
+}
+
 //⠀⠀⠀⠀⠀⠀⠀        ⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //        ⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣦⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //        ⠀⠀⠀⠀⠀⠀⢿⣿⠟⠋⠉⠀⠀⠀⠀⠉⠑⠢⣄⡀⠀⠀⠀⠀⠀
@@ -61,14 +63,5 @@ public class CardLayoutManager extends JFrame{
 //        ⠀⠀⠀⠀⠹⣿⣿⣿⠏⠀⠀⠀⠈⢿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀
 //        ⠀⠀⠀⠀⠀⠈⠉⠉⠀⠀⠀⠀⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 
-//    public void restartAllPanels(Container container){
-//        for (java.awt.Component panel: container.getComponents()) {
-//            if (panel instanceof JPanel){
-//                JPanel comp = (JPanel) panel;
-//                comp.revalidate();
-//                comp.repaint();
-//            }
-//        }
-//    }
 
-}
+

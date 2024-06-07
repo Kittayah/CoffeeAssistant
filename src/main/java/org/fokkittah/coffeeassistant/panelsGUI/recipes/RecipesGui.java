@@ -63,15 +63,7 @@ public class RecipesGui {
         String[] tooltips = {"Duration of the step in seconds", "Amount of water in grams", "Information about step"};
 
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
-//        DefaultTableModel modelOk = new DefaultTableModel(tutajDajWierszeChceVectora:D, columnNames);
         recipeStepsTable.setModel(model);
-            //fixme
-//        JTableHeader header = recipeStepsTable.getTableHeader();
-////        DefaultTableColumnModel defaultTableColumnModel = new DefaultTableColumnModel();
-////        defaultTableColumnModel.addColumn(new TableColumn(0, 10);
-//        header.setColumnModel(new DefaultTableColumnModel());
-//        header.setDefaultRenderer(new RecipeStepTableRenderer(recipeStepsTable, tooltips));
-
     }
 
     private void initializeButtons(CardLayoutManager manager) {
@@ -246,7 +238,6 @@ public class RecipesGui {
     }
 
     private boolean checkIfFieldsAreFilled() {
-        // also check if the fields are not "type here..."
         if (recipeInput.getText().isEmpty() || coffeInput.getText().isEmpty() || grindTextField.getText().isEmpty() || descriptionTextArea.getText().isEmpty()
                 || descriptionTextArea.getText().equals("type here...") || grindTextField.getText().equals("type here...") || coffeInput.getText().equals("type here...") || recipeInput.getText().equals("type here...")) {
             JOptionPane.showMessageDialog(mainPanel, "Please fill all fields", "Error", JOptionPane.ERROR_MESSAGE);

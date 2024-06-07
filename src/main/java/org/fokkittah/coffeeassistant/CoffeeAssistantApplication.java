@@ -12,11 +12,6 @@ public class CoffeeAssistantApplication extends JFrame {
     public static void main(String[] args) {
         var ctx = new SpringApplicationBuilder(CoffeeAssistantApplication.class).headless(false).run(args);
         ctx.getBean(CardLayoutManager.class);
-
-//        MainGui mainGui = new MainGui();
-//        WelcomeScreenGui welcomeScreenGui = new WelcomeScreenGui();
-//        mainGui.createAndShowGUI();
-
     }
 
 }
