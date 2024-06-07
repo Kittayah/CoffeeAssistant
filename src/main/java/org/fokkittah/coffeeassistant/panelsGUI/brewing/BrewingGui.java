@@ -55,8 +55,8 @@ public class BrewingGui {
     private JTextArea currentStepTextArea;
     private Timer timer;
     public static final int PROGRESS_BAR_MAX_VALUE = 100000;
-    public static final int PROGRESS_BAR_REFRESH_DELAY = 10;
-    public static int progressBarStep = 100;
+    public static final int PROGRESS_BAR_REFRESH_DELAY = 1000;
+    public static int progressBarStep = 1000;
     Iterator<Step> stepIterator;
 
     SettingsService settingsService;
@@ -69,21 +69,6 @@ public class BrewingGui {
         initializeRecipeComboBox();
         initializeProgressBar();
 
-    }
-
-    private void clearRecipeInfoPanel(){
-        recipeInfoLabel.setText("");
-        coffeeAmountValueLabel.setText("");
-        waterAmountValueLabel.setText("");
-        grinderSettingValueLabel.setText("");
-        totalTimeValueLabel.setText("");
-        DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
-        model.setRowCount(0);
-    }
-
-    private void clearRecipeStepsTable(){
-        DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
-        model.setRowCount(0);
     }
 
     private void initializeRecipeStepsTable(){
@@ -99,24 +84,35 @@ public class BrewingGui {
     }
 
     private void initializeButtons(CardLayoutManager manager){
-        startButton.addActionListener(e -> {
-//            startProgressBar();
-            startBrewing();
-
-        });
+        startButton.addActionListener(e -> {startBrewing();});
         goBackButton.addActionListener(e -> manager.switchPanel("main"));
+    }
 
+    private void clearRecipeStepsTable(){
+        DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
+        model.setRowCount(0);
+    }
+
+    private void clearRecipeInfoPanel(){
+        recipeInfoLabel.setText("");
+        coffeeAmountValueLabel.setText("");
+        waterAmountValueLabel.setText("");
+        grinderSettingValueLabel.setText("");
+        totalTimeValueLabel.setText("");
+        DefaultTableModel model = (DefaultTableModel) incomingStepsTable.getModel();
+        model.setRowCount(0);
     }
 
     private void startBrewing(){
-//        startBrewingStep();
-//        whenBrewingFinishedRestartBrewingScreen();
-
         List<Step> stepList = new ArrayList<>();
         Recipe selectedRecipe = (Recipe) recipeComboBox.getSelectedItem();
         if (selectedRecipe != null){
             setRecipeComboBoxEnabled(false);
             setStartButtonEnabled(false);
+
+            remainingTimeLabel.setText(convertTotalTimeFromSecondsToMinutes(settingsService.summarizeTotalTimeInRecipeInSeconds(selectedRecipe)));
+            elapsedTimeLabel.setText("0:00");
+
             stepList = selectedRecipe.getSteps();
             stepIterator = stepList.iterator();
             startBrewingStep();
@@ -147,7 +143,7 @@ public class BrewingGui {
         timeLeftValue.setText(convertTotalTimeFromSecondsToMinutes(currentStep.getDuration()));
         waterToPourValue.setText(String.valueOf(currentStep.getWater()));
 
-        startStepTimer();
+        startStepTimer(currentStep.getDuration());
     }
 
     private void showBrewingCompleteDialog(){
@@ -159,13 +155,25 @@ public class BrewingGui {
                 JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void startStepTimer(){
-        progressBarStep = Math.toIntExact(PROGRESS_BAR_MAX_VALUE / PROGRESS_BAR_REFRESH_DELAY / stepIterator.next().getDuration()); //fixme evluate
+    private void startStepTimer(int stepDuration){
+        progressBarStep = PROGRESS_BAR_MAX_VALUE / stepDuration;
         brewingProgressBar.setValue(0);
         timer = new Timer(PROGRESS_BAR_REFRESH_DELAY, progressBarUpdater);
         timer.start();
     }
 
+    private final ActionListener progressBarUpdater = evt -> {
+        if (brewingProgressBar.getValue() < PROGRESS_BAR_MAX_VALUE-1000) {
+            brewingProgressBar.setValue(brewingProgressBar.getValue() + progressBarStep);
+            updateTimeLeftLabel();
+            updateTimeRemainingLabel();
+            updateTimeElapsedLabel();
+        } else {
+            brewingProgressBar.setValue(PROGRESS_BAR_MAX_VALUE);
+            timer.stop();
+            startBrewingStep();
+        }
+    };
 
     private void setRecipeComboBoxEnabled(boolean b) {
         recipeComboBox.setEnabled(b);
@@ -209,16 +217,7 @@ public class BrewingGui {
 
     //progress bar logic
 
-    private final ActionListener progressBarUpdater = evt -> {
-        if (brewingProgressBar.getValue() < PROGRESS_BAR_MAX_VALUE) {
-            brewingProgressBar.setValue(brewingProgressBar.getValue() + progressBarStep);
-        } else {
-            brewingProgressBar.setValue(0);
-            timer.stop();
-//            updateProgressBar();
-            startBrewingStep();
-        }
-    };
+
 
 //    void startProgressBar(){
 //        List<Step> stepList = new ArrayList<>();
@@ -246,9 +245,31 @@ public class BrewingGui {
         return String.format("%d:%02d", minutes, seconds);
     }
 
+    private int convertTotalTimeFromReadableToSeconds(String totalTimeInMinutes){
+        String[] time = totalTimeInMinutes.split(":");
+        return Integer.parseInt(time[0]) * 60 + Integer.parseInt(time[1]);
+    }
+
+    private void updateTimeLeftLabel(){
+        int currentTime = convertTotalTimeFromReadableToSeconds(timeLeftValue.getText());
+        timeLeftValue.setText(convertTotalTimeFromSecondsToMinutes(currentTime - 1));
+    }
+
+    private void updateTimeRemainingLabel(){
+        int currentTime = convertTotalTimeFromReadableToSeconds(remainingTimeLabel.getText());
+        remainingTimeLabel.setText(convertTotalTimeFromSecondsToMinutes(currentTime - 1));
+    }
+
+    private void updateTimeElapsedLabel(){
+        int currentTime = convertTotalTimeFromReadableToSeconds(elapsedTimeLabel.getText());
+        elapsedTimeLabel.setText(convertTotalTimeFromSecondsToMinutes(currentTime + 1));
+    }
+
     public JPanel getPanel() {
         return mainPanel;
     }
+
+
 
 
 
