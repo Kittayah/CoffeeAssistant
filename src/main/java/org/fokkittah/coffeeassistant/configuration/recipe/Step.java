@@ -1,7 +1,5 @@
 package org.fokkittah.coffeeassistant.configuration.recipe;
 
-import java.time.Duration;
-
 public class Step {
     Integer duration;
     Integer water;
