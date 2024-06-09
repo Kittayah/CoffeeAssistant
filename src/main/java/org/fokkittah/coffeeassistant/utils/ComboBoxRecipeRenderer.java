@@ -5,6 +5,10 @@ import org.fokkittah.coffeeassistant.configuration.recipe.Recipe;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A renderer for displaying Recipe objects in a JComboBox.
+ * This renderer shows the name of the Recipe in the list.
+ */
 public class ComboBoxRecipeRenderer extends DefaultListCellRenderer {
 
     @Override

@@ -4,6 +4,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
+/**
+ * A renderer for displaying tooltips in a JTable for recipe steps.
+ * This renderer shows tooltips for each cell in the table.
+ */
 public class RecipeStepTableRenderer extends DefaultTableCellRenderer {
 
     private String[] tooltips;

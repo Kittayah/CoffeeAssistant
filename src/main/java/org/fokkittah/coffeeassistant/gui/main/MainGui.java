@@ -1,11 +1,16 @@
-package org.fokkittah.coffeeassistant.panelsGUI.main;
+package org.fokkittah.coffeeassistant.gui.main;
 
 import org.fokkittah.coffeeassistant.configuration.SettingsService;
-import org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen.CardLayoutManager;
+import org.fokkittah.coffeeassistant.gui.layoutmanager.CardLayoutManager;
 
 
 import javax.swing.*;
 
+/**
+ * This class represents the main GUI for the CoffeeAssistant application.
+ * It includes components such as buttons and panels, and provides methods to get the main panel.
+ * It also includes action listeners for the buttons to switch between different panels.
+ */
 public class MainGui {
     public static final String RECIPES = "recipes";
     public static final String BREWING = "brewing";
@@ -20,12 +25,10 @@ public class MainGui {
     private SettingsService settingsService;
 
     public MainGui(CardLayoutManager manager, SettingsService settingsService) {
-
         this.settingsService = settingsService;
-
-        manageRecipes.addActionListener(e -> manager.switchPanel(RECIPES));
-        startBrewing.addActionListener(e -> manager.switchPanel(BREWING));
-        configureSettings.addActionListener(e -> manager.switchPanel(SETTINGS));
+        manageRecipes.addActionListener(e -> manager.switchPanel(CardLayoutManager.PanelName.RECIPES));
+        startBrewing.addActionListener(e -> manager.switchPanel(CardLayoutManager.PanelName.BREWING));
+        configureSettings.addActionListener(e -> manager.switchPanel(CardLayoutManager.PanelName.SETTINGS));
 
     }
 

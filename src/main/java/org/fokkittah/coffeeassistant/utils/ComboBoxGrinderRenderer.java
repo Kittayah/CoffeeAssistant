@@ -5,6 +5,10 @@ import org.fokkittah.coffeeassistant.configuration.grinder.Grinder;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * A renderer for displaying Grinder objects in a JComboBox.
+ * This renderer shows the name of the Grinder in the list.
+ */
 public class ComboBoxGrinderRenderer extends DefaultListCellRenderer {
 
     @Override

@@ -2,6 +2,10 @@ package org.fokkittah.coffeeassistant.configuration.recipe;
 
 import java.util.List;
 
+/**
+ * This class represents a coffee brewing recipe.
+ * It includes properties such as name, description, coffee type, grind size, total water, total coffee, and a list of brewing steps.
+ */
 public class Recipe {
     String name;
     String description;
@@ -14,9 +18,23 @@ public class Recipe {
 
     List<Step> steps;
 
+    /**
+     * Default constructor for the Recipe class.
+     */
     public Recipe() {
     }
 
+    /**
+     * Constructor for the Recipe class.
+     * Initializes the name, description, coffee type, grind size, total water, total coffee, and list of brewing steps with the provided values.
+     * @param name The name of the recipe.
+     * @param description The description of the recipe.
+     * @param coffee The type of coffee used in the recipe.
+     * @param grind The grind size used in the recipe.
+     * @param totalWater The total amount of water used in the recipe.
+     * @param totalCoffee The total amount of coffee used in the recipe.
+     * @param steps The list of brewing steps in the recipe.
+     */
     public Recipe(String name, String description, String coffee, String grind, Integer totalWater, Integer totalCoffee, List<Step> steps) {
         this.name = name;
         this.description = description;
@@ -27,6 +45,7 @@ public class Recipe {
         this.steps = steps;
     }
 
+    // Getters and setters for the Recipe class properties.
     public String getName() {
         return name;
     }

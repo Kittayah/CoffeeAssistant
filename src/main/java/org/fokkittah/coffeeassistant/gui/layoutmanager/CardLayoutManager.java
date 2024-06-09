@@ -1,17 +1,21 @@
-package org.fokkittah.coffeeassistant.panelsGUI.welcomeScreen;
+package org.fokkittah.coffeeassistant.gui.layoutmanager;
 
 import org.fokkittah.coffeeassistant.configuration.SettingsService;
-import org.fokkittah.coffeeassistant.panelsGUI.brewing.BrewingGui;
-import org.fokkittah.coffeeassistant.panelsGUI.main.MainGui;
-import org.fokkittah.coffeeassistant.panelsGUI.recipes.RecipesGui;
-import org.fokkittah.coffeeassistant.panelsGUI.settings.SettingsGui;
+import org.fokkittah.coffeeassistant.gui.brewing.BrewingGui;
+import org.fokkittah.coffeeassistant.gui.main.MainGui;
+import org.fokkittah.coffeeassistant.gui.recipes.RecipesGui;
+import org.fokkittah.coffeeassistant.gui.settings.SettingsGui;
 import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
 
+
+/**
+ * Manages the layout and switching of different panels in the Coffee Assistant application.
+ */
 @Component
-public class CardLayoutManager extends JFrame{
+public class CardLayoutManager extends JFrame {
     
     private JPanel cardsPanel;
     private SettingsService settingsService = new SettingsService();
@@ -25,25 +29,38 @@ public class CardLayoutManager extends JFrame{
         SettingsGui settingsGui = new SettingsGui(this, settingsService);
         RecipesGui recipesGui = new RecipesGui(this, settingsService);
 
-        cardsPanel.add(mainGui.getPanel(), "main");
-        cardsPanel.add(brewingGui.getPanel(), "brewing");
-        cardsPanel.add(settingsGui.getPanel(), "settings");
-        cardsPanel.add(recipesGui.getPanel(), "recipes");
+        cardsPanel.add(mainGui.getPanel(), PanelName.MAIN.name());
+        cardsPanel.add(brewingGui.getPanel(), PanelName.BREWING.name());
+        cardsPanel.add(settingsGui.getPanel(), PanelName.SETTINGS.name());
+        cardsPanel.add(recipesGui.getPanel(), PanelName.RECIPES.name());
 
         setContentPane(cardsPanel);
         pack();
         setVisible(true);
 
-        switchPanel("main");
-
+        switchPanel(PanelName.MAIN);
     }
 
-    public void switchPanel(String panelName){
+    /**
+     * Switches to the specified panel.
+     *
+     * @param panelName The name of the panel to switch to.
+     */
+    public void switchPanel(PanelName panelName) {
         CardLayout appCards = (CardLayout) cardsPanel.getLayout();
-        appCards.show(cardsPanel, panelName);
+        appCards.show(cardsPanel, panelName.name());
+    }
+
+    public enum PanelName {
+        MAIN,
+        BREWING,
+        SETTINGS,
+        RECIPES;
     }
 
 }
+
+
 
 //⠀⠀⠀⠀⠀⠀⠀        ⠀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 //        ⠀⠀⠀⠀⠀⠀⣰⣿⣿⣿⣿⣦⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
