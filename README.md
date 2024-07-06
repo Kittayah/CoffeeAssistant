@@ -1,6 +1,6 @@
 # Coffee Assistant 
 
-CoffeeAssistant is a mall school project written in... two days? It is a Java-based desktop application designed to simplify manual coffee brewing process by following recipes step by step. It can act as a recipe storage as well.
+CoffeeAssistant is a small school project written in... two days? It is a Java-based desktop application designed to simplify manual coffee brewing process by following recipes step by step. It can act as a recipe storage as well.
 Anyway, it ain't much but you can brew delicious coffee with it's help
 
 ### Getting Started
